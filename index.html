@@ -3,131 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PEIXOTO FIT - V2 SMART + 3D</title>
+<title>PEIXOTO FIT V4 COMPLETO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#000;color:#fff;padding-bottom:90px}
-.top{padding:16px;display:flex;justify-content:space-between;align-items:center}
-.top b{font-size:28px} .top b span{color:#FFD700}
-.semana{display:flex;justify-content:space-around;padding:10px 14px;text-align:center;font-size:13px;color:#999}
-.semana .hoje{color:#FFD700;font-weight:bold}
-.card{background:#1a1a1a;margin:12px;border-radius:18px;padding:16px}
-.card2{background:#222;margin:12px;border-radius:18px;padding:0;overflow:hidden}
-.exrow{display:flex;gap:12px;padding:14px;align-items:center;border-bottom:1px solid #333}
-.check{width:28px;height:28px;border:2px solid #777;border-radius:8px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px}
-.check.on{background:#FFD700;border-color:#FFD700;color:#000}
-.thumb{width:76px;height:76px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;cursor:pointer}
-.btnY{background:#FFD700;color:#000;border:none;padding:16px;width:100%;border-radius:14px;font-weight:bold;font-size:18px;cursor:pointer}
-.btnO{background:none;color:#fff;border:1px solid #555;padding:12px 22px;border-radius:25px;cursor:pointer}
-input,select{width:100%;padding:13px;margin:6px 0;border-radius:12px;border:1px solid #333;background:#222;color:#fff}
-.badge{background:#FFD700;color:#000;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:8px}
-.small{font-size:13px;color:#ccc;line-height:1.5}
-.yellow{color:#FFD700;font-weight:bold}
-.tabs{display:flex;gap:8px;padding:0 12px;overflow-x:auto}
-.tabs button{background:#1a1a1a;color:#ccc;border:none;padding:10px 16px;border-radius:20px;white-space:nowrap}
+body{background:#050505;color:#fff;padding-bottom:95px}
+header{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:16px;text-align:center;position:sticky;top:0;z-index:20}
+header h1{font-size:26px;letter-spacing:1px} header p{font-size:12px;font-weight:bold}
+.tabs{display:flex;gap:8px;padding:12px;overflow-x:auto}
+.tabs button{background:#1a1a1a;color:#ccc;border:none;padding:10px 16px;border-radius:20px;white-space:nowrap;cursor:pointer}
 .tabs button.on{background:#FFD700;color:#000;font-weight:bold}
+.card{background:#151515;margin:12px;border-radius:18px;padding:16px;border:1px solid #2a2a2a}
+.card2{background:#1f1f1f;margin:12px;border-radius:18px;overflow:hidden;border:1px solid #2a2a2a}
+.exrow{display:flex;gap:12px;padding:14px;align-items:center;border-bottom:1px solid #333}
+.check{width:30px;height:30px;border:2px solid #777;border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:18px}
+.check.on{background:#FFD700;color:#000;border-color:#FFD700}
+.thumb{width:82px;height:82px;background:#fff;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;color:#000}
+.thumb span{font-size:36px;line-height:1} .thumb small{font-size:9px;font-weight:bold;text-align:center;margin-top:2px}
+.btnY{background:#FFD700;color:#000;border:none;padding:16px;width:100%;border-radius:14px;font-weight:bold;font-size:17px;cursor:pointer;margin-top:8px}
+.btnO{background:none;color:#FFD700;border:1px solid #FFD700;padding:10px 16px;border-radius:20px;cursor:pointer}
+input,select{width:100%;padding:13px;margin:6px 0;border-radius:12px;border:1px solid #333;background:#222;color:#fff;font-size:15px}
+.badge{background:#FFD700;color:#000;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:8px}
+.badgeR{background:#FF2D2D;color:#fff;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:8px}
+.badgeG{background:#00C853;color:#fff;font-size:11px;font-weight:bold;padding:4px 8px;border-radius:8px}
+.small{font-size:13px;color:#ccc;line-height:1.55} .yellow{color:#FFD700;font-weight:bold} .red{color:#FF2D2D;font-weight:bold} .green{color:#00E676;font-weight:bold}
 #modal{position:fixed;inset:0;background:#000;display:none;overflow-y:auto;z-index:99}
-.stage{height:360px;background:radial-gradient(circle at 50% 30%, #2a4bff 0%, #000 70%);display:flex;align-items:center;justify-content:center;position:relative}
-.man{position:relative;width:180px;height:300px}
-.head{width:36px;height:36px;background:#e8e8e8;border-radius:50%;position:absolute;top:0;left:77px}
-.torso{width:70px;height:90px;background:linear-gradient(#f5f5f5,#d0d0d0);border-radius:18px;position:absolute;top:36px;left:55px}
-.armL,.armR{width:16px;height:85px;background:#e8e8e8;border-radius:10px;position:absolute;top:38px;transform-origin:top center}
-.armL{left:42px} .armR{left:122px}
-.legL,.legR{width:18px;height:95px;background:#e8e8e8;border-radius:10px;position:absolute;top:122px;transform-origin:top center}
-.legL{left:62px} .legR{left:100px}
-.dumb{position:absolute;width:28px;height:28px;background:#111;border-radius:50%;border:3px solid #555;top:0}
-@keyframes supino{0%,100%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(25deg) translateY(18px)}}
-@keyframes puxada{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-50deg)}}
-@keyframes agacha{0%,100%{transform:translateY(0)}50%{transform:translateY(38px)}}
-@keyframes ombro{0%,100%{transform:rotate(160deg)}50%{transform:rotate(20deg)}}
-@keyframes rosca{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-70deg)}}
-.anim-supino .armL,.anim-supino .armR{animation:supino 1.4s infinite alternate}
-.anim-puxada .armL,.anim-puxada .armR{animation:puxada 1.4s infinite alternate}
-.anim-agacha .man{animation:agacha 1.4s infinite alternate}
-.anim-agacha .legL,.anim-agacha .legR{animation:agacha 1.4s infinite alternate}
-.anim-ombro .armL,.anim-ombro .armR{animation:ombro 1.4s infinite alternate}
-.anim-rosca .armL,.anim-rosca .armR{animation:rosca 1.2s infinite alternate}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#111;display:flex;border-top:1px solid #333}
-.bottom button{flex:1;padding:14px;background:none;border:none;color:#999;font-weight:bold}
-.bottom button.on{color:#FFD700}
-.progress{height:10px;background:#333;border-radius:10px;overflow:hidden;margin:10px 0}
-.progress div{height:100%;background:#FFD700;width:0%;transition:.4s}
+.stage{height:360px;background:radial-gradient(circle at 50% 20%,#1a3cff 0%,#000 78%);display:flex;align-items:center;justify-content:center;position:relative}
+.muscle{transition:fill .3s} .active{fill:#FF2D2D!important;filter:drop-shadow(0 0 8px #FF2D2D)} .helper{fill:#FFD700!important}
+@keyframes lift{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}} @keyframes pull{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}} @keyframes squat{0%,100%{transform:translateY(0)}50%{transform:translateY(30px)}}
+.anim-lift{animation:lift 2s infinite ease-in-out} .anim-pull{animation:pull 2s infinite ease-in-out} .anim-squat{animation:squat 2s infinite ease-in-out}
+.legend{display:flex;gap:10px;justify-content:center;padding:8px;font-size:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#111;display:flex;border-top:1px solid #333;z-index:30}
+.bottom button{flex:1;padding:12px 2px;background:none;border:none;color:#999;font-weight:bold;font-size:12px} .bottom button.on{color:#FFD700}
+.progress{height:11px;background:#333;border-radius:10px;overflow:hidden;margin:10px 0} .progress div{height:100%;background:#FFD700;width:0%;transition:.4s}
+.kpi{display:flex;gap:10px} .kpi div{flex:1;background:#222;border-radius:14px;padding:12px;text-align:center}
+.saved{border:1px dashed #FFD700;padding:12px;border-radius:12px;margin:8px 0}
+canvas{width:100%;height:140px;background:#111;border-radius:12px}
 </style>
 </head>
 <body>
-<div class="top"><b>peixoto<span>fit</span></b><span style="font-size:22px">▦</span></div>
+<header><h1>💪 PEIXOTO FIT</h1><p>FIT FREE • V4 COMPLETA • SEU APP, SEU JEITO</p></header>
 
-<div id="login">
-<div class="card"><h2>👋 Bem-vindo ao FIT FREE</h2><p class="small">Melhor que Smart Fit. Grátis. Com boneco 3D igual NextiFit.</p>
-<input id="nome" placeholder="Seu nome (ex: Breno)"><input placeholder="Seu e-mail"><input type="password" placeholder="Senha">
-<select><option>🎯 Hipertrofia - Ganhar massa</option><option>🔥 Emagrecer / Definir</option><option>💪 Força</option><option>🍑 Glúteo e Pernas</option></select>
-<button class="btnY" onclick="entrar()">CRIAR CONTA GRÁTIS →</button></div>
-</div>
+<div id="login"><div class="card"><h2>👋 Bem-vindo, Breno!</h2><p class="small">Crie seu perfil de saúde pra acompanhar sua evolução.</p>
+<input id="nome" placeholder="Seu nome (Breno)"><input id="idadeIn" type="number" placeholder="Sua idade (ex: 19)"><input id="pesoIn" type="number" placeholder="Seu peso hoje kg (ex: 75)"><input id="alturaIn" type="number" placeholder="Sua altura cm (ex: 175)">
+<select><option>🎯 Hipertrofia</option><option>🔥 Definir</option><option>💪 Força</option><option>🍑 Glúteo e Pernas</option></select>
+<button class="btnY" onclick="entrar()">CRIAR MEU APP GRÁTIS →</button></div></div>
 
 <div id="app" style="display:none">
-<div class="semana"><div>🔥<br><b>1</b><br>Semana</div><div>D<br>8</div><div class="hoje">Hoje<br>✓</div><div>T<br>10</div><div>Q<br>11</div><div>Q<br>12</div><div>S<br>13</div><div>S<br>14</div></div>
+<div class="tabs">
+<button class="on" data-aba="inicio" onclick="aba('inicio',this)">🏠 Início</button>
+<button data-aba="treino" onclick="aba('treino',this)">🏋️ Treinos</button>
+<button data-aba="salvos" onclick="aba('salvos',this)">📋 Meus Treinos Salvos</button>
+<button data-aba="saude" onclick="aba('saude',this)">❤️ Saúde / Evolução</button>
+</div>
 
-<div style="padding:0 14px;display:flex;justify-content:space-between;align-items:center"><h2>Meu Treino <span class="badge">ATIVO</span></h2><span class="small">Ver todos ></span></div>
+<!-- INICIO -->
+<div id="aba-inicio">
+<div class="card"><h3 id="ola">Olá, Breno! 🔥</h3><p class="small">Hoje: <b class="yellow" id="hojeTxt">Segunda - Treino A</b> • <span id="txtProg">0 de 12 feitos</span></p><div class="progress"><div id="barraTop"></div></div><button class="btnY" onclick="aba('treino',null)">COMEÇAR TREINO DE HOJE ▶</button></div>
+<div class="card"><h3>📅 Seu Plano da Semana</h3><p class="small"><b class="yellow">SEG - A:</b> Peito + Tríceps<br><b class="yellow">TER - B:</b> Costas + Bíceps<br><b class="yellow">QUA - C:</b> Pernas + Glúteo<br><b class="yellow">QUI - D:</b> Ombro + Abdômen<br><b class="yellow">SEX - E:</b> Braço Completo<br><b class="yellow">SÁB:</b> Cardio leve • <b class="yellow">DOM:</b> Descanso</p></div>
+<div class="card"><h3>🏆 Dica de Fisiculturista</h3><p class="small">Músculo cresce no descanso. Descanse 60-90s entre séries, coma proteína em toda refeição, durma 7-8h. Não falte na segunda!</p></div>
+</div>
 
-<div class="card" onclick="irTreino()"><div style="display:flex;gap:12px;align-items:center"><div style="background:#FFD700;color:#000;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:20px">C</div><div><b style="font-size:18px">Dorsal, Ombro, Bíceps</b><br><span class="small">60 min • 12 exercícios</span></div><span style="margin-left:auto">></span></div>
-<div class="progress"><div id="barraTop" style="width:35%"></div></div><p class="small"><span id="txtProg">4 de 12 Treinos</span></p></div>
-<div style="text-align:center"><button class="btnO" onclick="irTreino()">Renove seu treino</button></div>
-
-<div class="tabs" style="margin-top:16px"><button class="on" onclick="filtrar('Todos',this)">Todos</button><button onclick="filtrar('Peito',this)">Peito</button><button onclick="filtrar('Costas',this)">Costas</button><button onclick="filtrar('Pernas',this)">Pernas</button><button onclick="filtrar('Ombro',this)">Ombro</button><button onclick="filtrar('Bíceps',this)">Bíceps</button><button onclick="filtrar('Tríceps',this)">Tríceps</button><button onclick="filtrar('Glúteo',this)">Glúteo</button></div>
-
-<div class="card"><h3>🔍 Buscar</h3><input id="busca" placeholder="Ex: supino, puxada, agachamento..." oninput="listar()"></div>
+<!-- TREINOS -->
+<div id="aba-treino" style="display:none">
+<div class="card"><h3>🔍 Buscar exercício / máquina</h3><input id="busca" placeholder="Ex: cadeira extensora, leg press, supino..." oninput="listar()">
+<select id="filtroEquip" onchange="listar()"><option value="">Todos: Máquina + Peso Livre</option><option>Máquina</option><option>Peso Livre - Barra</option><option>Peso Livre - Halter</option><option>Cabo / Polia</option><option>Peso Corporal</option></select></div>
+<div class="tabs"><button class="on" onclick="filtrar('Todos',this)">Todos</button><button onclick="filtrar('Peito',this)">Peito</button><button onclick="filtrar('Costas',this)">Costas</button><button onclick="filtrar('Pernas',this)">Pernas</button><button onclick="filtrar('Ombro',this)">Ombro</button><button onclick="filtrar('Bíceps',this)">Bíceps</button><button onclick="filtrar('Tríceps',this)">Tríceps</button><button onclick="filtrar('Glúteo',this)">Glúteo</button></div>
 <div id="lista"></div>
+</div>
 
-<div class="card"><h3>📅 No último mês</h3><p class="small">Treinos feitos: <b class="yellow" id="total">4</b> • Sequência: <b class="yellow">1 dia 🔥</b></p><p class="small">Continue! O músculo cresce no descanso. Durma 7-8h, coma proteína em toda refeição.</p></div>
+<!-- SALVOS -->
+<div id="aba-salvos" style="display:none">
+<div class="card"><h3>📋 Meus Treinos Salvos - Meu Plano da Semana</h3><p class="small">Monte e salve. Quando você salvar, fica guardado aqui mesmo no seu celular.</p>
+<select id="treinoSel"><option>A - Peito + Tríceps (Segunda)</option><option>B - Costas + Bíceps (Terça)</option><option>C - Pernas + Glúteo (Quarta)</option><option>D - Ombro + Abdômen (Quinta)</option><option>E - Braço Completo (Sexta)</option></select>
+<input id="novoEx" placeholder="Ex: Supino Reto - 4x10 - 40kg"><button class="btnO" onclick="addEx()">+ ADICIONAR EXERCÍCIO NO MEU PLANO</button>
+<div id="meusSalvos"></div>
+<button class="btnY" onclick="salvarPlano()">💾 SALVAR MEU PLANO DA SEMANA</button></div>
+<div class="card"><h3>✅ Treinos Salvos</h3><div id="listaSalvos"><p class="small">Você ainda não salvou nenhum. Monte acima e clique em SALVAR.</p></div></div>
+</div>
+
+<!-- SAUDE -->
+<div id="aba-saude" style="display:none">
+<div class="card"><h3>❤️ Minha Saúde / Minha Evolução</h3><div class="kpi"><div><b id="kIdade">-</b><br><span class="small">Idade</span></div><div><b id="kPeso">-</b><br><span class="small">Peso kg</span></div><div><b id="kAltura">-</b><br><span class="small">Altura cm</span></div></div>
+<p class="small" style="margin-top:10px">IMC: <b class="yellow" id="kImc">-</b> • Meta: Ganhar massa com qualidade</p>
+<p class="small">Atualize seu peso toda semana pra ver sua evolução:</p><input id="novoPeso" type="number" placeholder="Peso de hoje kg (ex: 76.5)"><button class="btnO" onclick="addPeso()">+ REGISTRAR MEU PESO DE HOJE</button>
+<canvas id="grafico" width="320" height="140"></canvas><p class="small">📈 Gráfico: sua evolução de peso. Cada ponto é uma semana.</p><p class="small">🔥 Evolução: <b class="green" id="evolucaoTxt">Começando agora! Continue firme.</b></p></div>
+<div class="card"><h3>💧 Água / Sono / Proteína</h3><p class="small">Meta diária: <b class="yellow">3L água</b> • <b class="yellow">7-8h sono</b> • <b class="yellow">2g proteína por kg</b><br>Ex: Se você pesa 75kg = 150g proteína por dia.</p></div>
+</div>
 </div>
 
 <div id="modal"></div>
-<div class="bottom"><button class="on">🏠 Início</button><button onclick="irTreino()">🏋️ Treino</button><button>❤️ Saúde</button><button>👥 Comunidade</button></div>
+<div class="bottom"><button class="on" onclick="aba('inicio',this)">🏠 Início</button><button onclick="aba('treino',this)">🏋️ Treino</button><button onclick="aba('salvos',this)">📋 Salvos</button><button onclick="aba('saude',this)">❤️ Saúde</button></div>
 
 <script>
 const EX=[
-["Supino Reto","Peito","4x 10 a 12 | 40kg","supino","Deite, desça a barra até o peito, suba sem travar. Pega Peito médio, Tríceps e Ombro. ERRO: não jogue o peso."],
-["Supino Inclinado Halter","Peito","4x 10 | 16kg","supino","Banco 30°. Desça até o peito. Pega Peito superior."],
-["Crucifixo / Peck Deck","Peito","3x 12 a 15","supino","Abra e feche com o peito, não com o braço."],
-["Puxada Polia Barra","Costas","3x 8 a 10 | 40","puxada","Puxe a barra até o peito, peito estufado. Pega Dorsal. ERRO: não balance o corpo."],
-["Puxada Polia","Costas","3x 8 a 10","puxada","Puxe a corda até o peito, foco na dorsal."],
-["Remada Baixa","Costas","4x 10","puxada","Puxe até a barriga, cotovelo colado. Pega Costas média."],
-["Remada Curvada","Costas","4x 8 a 10","puxada","Tronco 45°, puxe a barra. Não arredonde as costas."],
-["Agachamento Livre","Pernas","4x 8 a 10","agacha","Desça até coxa paralela. REI dos exercícios! Pega Quadríceps e Glúteo."],
-["Leg Press 45°","Pernas","4x 12","agacha","Pés na plataforma, desça até 90°. Não trave o joelho."],
-["Cadeira Extensora","Pernas","3x 15","agacha","Estenda, segure 1s em cima. Pega Quadríceps."],
-["Hip Thrust / Elevação Pélvica","Glúteo","4x 12","agacha","Suba o quadril e aperta o glúteo 2s no topo. MELHOR para glúteo!"],
-["Desenvolvimento Ombro Halter","Ombro","4x 10","ombro","Sentado, suba os halteres sem travar. Igual o boneco do NextiFit!"],
-["Elevação Lateral","Ombro","3x 15","ombro","Levante até altura do ombro. Deixa o ombro largo!"],
-["Rosca Direta Barra","Bíceps","4x 10","rosca","Suba sem balançar, desça lento. Pega Bíceps."],
-["Rosca Alternada","Bíceps","3x 12","rosca","Alterne, gire a palma no final."],
-["Tríceps Pulley","Tríceps","4x 12","rosca","Cotovelo colado, estenda tudo. Tríceps é 2/3 do braço!"],
-["Tríceps Testa","Tríceps","3x 10","rosca","Deitado, desça até a testa."],
-["Abdominal Crunch","Abdômen","4x 20","agacha","Suba só o ombro, não puxe o pescoço."]
+{nome:"Supino Reto",mus:"Peito",series:"4x 10 a 12 | 40kg",equip:"Peso Livre - Barra",maquina:"Banco Reto + Barra",icone:"🏋️",leg:"Banco Reto",tipo:"lift",prin:["peito"],aju:["triceps","ombro"],desc:"Deite no banco reto, desça a barra até o peito em 2s, suba em 1s. Peito acende vermelho."},
+{nome:"Supino Inclinado Halter",mus:"Peito",series:"4x 10 | 16kg cada",equip:"Peso Livre - Halter",maquina:"Banco Inclinado + Halteres",icone:"🏋️",leg:"Banco Inclinado",tipo:"lift",prin:["peito"],aju:["ombro"],desc:"Banco 30°, desça até o peito. Foco no peito superior."},
+{nome:"Crucifixo / Peck Deck",mus:"Peito",series:"3x 12 a 15",equip:"Máquina",maquina:"Máquina Peck Deck",icone:"🦋",leg:"Peck Deck",tipo:"lift",prin:["peito"],aju:[],desc:"Máquina Peck Deck. Abra e feche com o peito, não com o braço."},
+{nome:"Cross Over Cabo",mus:"Peito",series:"3x 15",equip:"Cabo / Polia",maquina:"Cross Over - Cabos",icone:"🔌",leg:"Cross",tipo:"lift",prin:["peito"],aju:[],desc:"Cabos altos, feche como abraçando. Definição do peito."},
+{nome:"Puxada Polia Barra",mus:"Costas",series:"3x 8 a 10 | 40kg",equip:"Máquina",maquina:"Máquina Puxada Alta",icone:"⬇️",leg:"Puxada",tipo:"pull",prin:["dorsal"],aju:["biceps"],desc:"Puxe a barra até o peito, peito estufado. Costas acendem atrás."},
+{nome:"Puxada Polia Triângulo",mus:"Costas",series:"3x 10",equip:"Cabo / Polia",maquina:"Polia + Triângulo",icone:"⬇️",leg:"Polia",tipo:"pull",prin:["dorsal"],aju:["biceps"],desc:"Puxe o triângulo até o peito. Foco na dorsal."},
+{nome:"Remada Baixa",mus:"Costas",series:"4x 10",equip:"Máquina",maquina:"Máquina Remada Baixa",icone:"🚣",leg:"Remada",tipo:"pull",prin:["dorsal"],aju:["biceps"],desc:"Máquina remada baixa. Puxe até a barriga, cotovelo colado."},
+{nome:"Remada Curvada Barra",mus:"Costas",series:"4x 8 a 10",equip:"Peso Livre - Barra",maquina:"Barra Livre",icone:"🏋️",leg:"Barra",tipo:"pull",prin:["dorsal"],aju:["biceps"],desc:"Tronco 45°, puxe a barra. Não arredonde as costas."},
+{nome:"Agachamento Livre",mus:"Pernas",series:"4x 8 a 10",equip:"Peso Livre - Barra",maquina:"Barra + Rack Agachamento",icone:"🦵",leg:"Rack",tipo:"squat",prin:["quad"],aju:["gluteo"],desc:"Barra nas costas, desça até coxa paralela. REI dos exercícios!"},
+{nome:"Leg Press 45°",mus:"Pernas",series:"4x 12",equip:"Máquina",maquina:"Máquina Leg Press 45°",icone:"🦵",leg:"Leg Press",tipo:"squat",prin:["quad"],aju:["gluteo"],desc:"Máquina Leg Press. Pés na plataforma, desça até 90°. Não trave o joelho."},
+{nome:"Cadeira Extensora",mus:"Pernas",series:"3x 15",equip:"Máquina",maquina:"Máquina Cadeira Extensora",icone:"🦵",leg:"Extensora",tipo:"squat",prin:["quad"],aju:[],desc:"Máquina Cadeira Extensora. Estenda, segure 1s em cima. Quadríceps isolado acende."},
+{nome:"Cadeira Flexora",mus:"Pernas",series:"3x 12",equip:"Máquina",maquina:"Máquina Cadeira Flexora",icone:"🦵",leg:"Flexora",tipo:"squat",prin:["quad"],aju:[],desc:"Máquina Flexora. Flexione até trás. Posterior da coxa."},
+{nome:"Stiff Barra",mus:"Pernas",series:"4x 10",equip:"Peso Livre - Barra",maquina:"Barra Livre",icone:"🦵",leg:"Barra",tipo:"squat",prin:["gluteo"],aju:["quad"],desc:"Desça a barra com perna semi reta, bumbum pra trás. Posterior + Glúteo."},
+{nome:"Hip Thrust / Elevação Pélvica",mus:"Glúteo",series:"4x 12",equip:"Peso Livre - Barra",maquina:"Banco + Barra",icone:"🍑",leg:"Banco",tipo:"squat",prin:["gluteo"],aju:["quad"],desc:"Costas no banco, suba quadril e aperta glúteo 2s no topo. MELHOR para glúteo!"},
+{nome:"Cadeira Abdutora",mus:"Glúteo",series:"3x 15",equip:"Máquina",maquina:"Máquina Abdutora",icone:"🍑",leg:"Abdutora",tipo:"squat",prin:["gluteo"],aju:[],desc:"Máquina Abdutora. Abra as pernas com força. Glúteo médio."},
+{nome:"Glúteo no Cabo / Coice",mus:"Glúteo",series:"3x 15 cada perna",equip:"Cabo / Polia",maquina:"Polia Baixa + Caneleira",icone:"🍑",leg:"Polia",tipo:"squat",prin:["gluteo"],aju:[],desc:"Chute pra trás sem mexer a lombar. Glúteo máximo."},
+{nome:"Desenvolvimento Ombro Halter",mus:"Ombro",series:"4x 10",equip:"Peso Livre - Halter",maquina:"Banco + Halteres",icone:"💪",leg:"Banco",tipo:"lift",prin:["ombro"],aju:["triceps"],desc:"Igual NextiFit! Sentado, suba os halteres. Ombro acende vermelho."},
+{nome:"Desenvolvimento Máquina",mus:"Ombro",series:"4x 10",equip:"Máquina",maquina:"Máquina Desenvolvimento",icone:"💪",leg:"Máquina",tipo:"lift",prin:["ombro"],aju:["triceps"],desc:"Máquina Desenvolvimento. Empurre pra cima sem travar."},
+{nome:"Elevação Lateral Halter",mus:"Ombro",series:"3x 15",equip:"Peso Livre - Halter",maquina:"Halteres",icone:"🦅",leg:"Halter",tipo:"lift",prin:["ombro"],aju:[],desc:"Levante até altura do ombro. Ombro lateral acende."},
+{nome:"Rosca Direta Barra",mus:"Bíceps",series:"4x 10",equip:"Peso Livre - Barra",maquina:"Barra W",icone:"💪",leg:"Barra W",tipo:"lift",prin:["biceps"],aju:[],desc:"Barra W, suba sem balançar, desça lento. Bíceps acende."},
+{nome:"Rosca Alternada Halter",mus:"Bíceps",series:"3x 12",equip:"Peso Livre - Halter",maquina:"Halteres",icone:"💪",leg:"Halter",tipo:"lift",prin:["biceps"],aju:[],desc:"Alterne, gire a palma no final."},
+{nome:"Rosca Scott Máquina",mus:"Bíceps",series:"3x 10",equip:"Máquina",maquina:"Máquina Scott",icone:"💪",leg:"Scott",tipo:"lift",prin:["biceps"],aju:[],desc:"Banco Scott. Desça tudo e suba. Isola o bíceps."},
+{nome:"Tríceps Pulley",mus:"Tríceps",series:"4x 12",equip:"Cabo / Polia",maquina:"Polia Alta + Barra",icone:"💪",leg:"Polia",tipo:"pull",prin:["triceps"],aju:[],desc:"Cotovelo colado, estenda tudo. Tríceps é 2/3 do braço!"},
+{nome:"Tríceps Testa Barra",mus:"Tríceps",series:"3x 10",equip:"Peso Livre - Barra",maquina:"Banco Reto + Barra W",icone:"💪",leg:"Banco",tipo:"pull",prin:["triceps"],aju:[],desc:"Deitado, desça até a testa."},
+{nome:"Panturrilha em Pé Máquina",mus:"Pernas",series:"4x 20",equip:"Máquina",maquina:"Máquina Panturrilha",icone:"🦵",leg:"Panturrilha",tipo:"squat",prin:["quad"],aju:[],desc:"Máquina Panturrilha. Suba tudo e desça tudo."}
 ];
-let feitos=new Set(), filtro='Todos';
-function entrar(){let n=document.getElementById('nome').value||'Breno';document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';listar();}
-function irTreino(){document.getElementById('app').scrollTo(0,0);window.scrollTo(0,300);listar();}
-function filtrar(f,btn){filtro=f;document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');listar();}
-function listar(){
-let b=(document.getElementById('busca')?.value||'').toLowerCase();
-let html='';
-EX.forEach((x,i)=>{
-if(filtro!='Todos'&&x[1]!=filtro&&!(filtro=='Costas'&&x[1]=='Costas'))return;
-if(b&&!x[0].toLowerCase().includes(b))return;
-let on=feitos.has(i)?'on':'';
-let ck=feitos.has(i)?'✓':'';
-html+=`<div class="card2"><div class="exrow"><div class="check ${on}" onclick="marcar(${i},this)">${ck}</div><div class="thumb" onclick="abrir(${i})"><div style="font-size:40px">💪</div></div><div onclick="abrir(${i})" style="flex:1"><b>${x[0]}</b><br><span class="small">${x[2]}</span><br><span class="badge">${x[1]}</span> <span class="small">Ver 3D ></span></div><span onclick="abrir(${i})">></span></div><div style="display:flex;justify-content:space-between;padding:12px 14px;align-items:center"><span>⏱ <b id="timer${i}">00:45</b> <span class="small">(Descanso entre séries)</span></span><button onclick="timer(${i},this)" style="background:none;border:none;font-size:24px;color:#FFD700">▶</button></div></div>`;
-});
-document.getElementById('lista').innerHTML=html||'<p class="small" style="padding:14px">Nenhum encontrado.</p>';
-}
-function marcar(i,el){if(feitos.has(i)){feitos.delete(i);el.classList.remove('on');el.innerHTML='';}else{feitos.add(i);el.classList.add('on');el.innerHTML='✓';}let p=Math.round(feitos.size/EX.length*100);document.getElementById('barraTop').style.width=p+'%';document.getElementById('txtProg').innerText=feitos.size+' de '+EX.length+' Treinos';}
-function timer(i,btn){let s=45;let el=document.getElementById('timer'+i);let iv=setInterval(()=>{s--;let m='00:'+(s<10?'0'+s:s);el.innerText=m;if(s<=0){clearInterval(iv);el.innerText='00:45';alert('⏰ Descanso acabou! Bora pra próxima série, monstro!');}},1000);}
-function abrir(i){let x=EX[i];let anim='anim-'+x[3];
-document.getElementById('modal').style.display='block';
-document.getElementById('modal').innerHTML=`<div style="padding:12px"><span onclick="fechar()" style="font-size:28px;cursor:pointer">←</span> <span style="float:right;font-size:28px">+</span></div><div class="stage ${anim}"><div class="man"><div class="head"></div><div class="torso"></div><div class="armL"></div><div class="armR"></div><div class="legL"></div><div class="legR"></div></div><div style="position:absolute;bottom:12px;left:0;right:0;text-align:center"><span class="badge">BONECO 3D PEIXOTO FIT • SE MEXENDO</span></div></div><div style="padding:16px"><h2>${x[0]}</h2><p class="small">Músculo: <b class="yellow">${x[1]}</b> • Séries: <b class="yellow">${x[2]}</b></p><p class="small" style="margin-top:12px"><b class="yellow">📋 COMO FAZER (olha o boneco em cima se mexendo):</b><br>${x[4]}</p><p class="small" style="margin-top:10px">🎯 <b>Dica de fisiculturista:</b> Desça em 2 segundos, suba em 1 segundo, sem roubar. Descanse 45-90s.</p><button class="btnY" style="margin-top:16px" onclick="fechar();marcar(${i},document.querySelectorAll('.check')[${i}]);">✅ ENTENDI, QUERO FAZER ESSE</button><button class="btnO" style="width:100%;margin-top:8px" onclick="fechar()">Fechar</button></div>`;
-window.scrollTo(0,0);
-}
+let feitos=new Set(),filtro='Todos',meus=[],pesos=[],visao='frente';
+function entrar(){let n=document.getElementById('nome').value||'Breno';document.getElementById('ola').innerText='Olá, '+n+'! 🔥';document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';let id=document.getElementById('idadeIn').value||'19',p=document.getElementById('pesoIn').value||'75',a=document.getElementById('alturaIn').value||'175';document.getElementById('kIdade').innerText=id+' anos';document.getElementById('kPeso').innerText=p+' kg';document.getElementById('kAltura').innerText=a+' cm';let imc=(p/((a/100)*(a/100))).toFixed(1);document.getElementById('kImc').innerText=imc;pesos=[parseFloat(p)];desenharGrafico();listar();document.getElementById('hojeTxt').innerText=new Date().toLocaleDateString('pt-BR',{weekday:'long'})+' - Treino A';}
+function aba(id,btn){['inicio','treino','salvos','saude'].forEach(x=>document.getElementById('aba-'+x).style.display=x==id?'block':'none');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');document.querySelectorAll('.bottom button').forEach(b=>b.classList.remove('on'));}
+function filtrar(f,b){filtro=f;document.querySelectorAll('#aba-treino .tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');listar();}
+function listar(){let bus=(document.getElementById('busca')?.value||'').toLowerCase();let eq=document.getElementById('filtroEquip')?.value||'';let h='';EX.forEach((x,i)=>{if(filtro!='Todos'&&x.mus!=filtro)return;if(eq&&x.equip!=eq)return;if(bus&&!x.nome.toLowerCase().includes(bus)&&!x.maquina.toLowerCase().includes(bus))return;let on=feitos.has(i)?'on':'',ck=feitos.has(i)?'✓':'';h+=`<div class="card2"><div class="exrow"><div class="check ${on}" onclick="marcar(${i},this)">${ck}</div><div class="thumb" onclick="abrir(${i})"><span>${x.icone}</span><small>${x.leg.toUpperCase()}</small></div><div onclick="abrir(${i})" style="flex:1"><b>${x.nome}</b><br><span class="small">${x.series}</span><br><span class="badge">${x.mus}</span> <span class="badgeG">${x.equip}</span><br><span class="small">🏋️ Máquina: <b style="color:#fff">${x.maquina}</b></span><br><span class="badgeR">🔥 VER 3D + MÚSCULO</span></div><span>></span></div><div style="display:flex;justify-content:space-between;padding:12px 14px"><span>⏱ <b id="t${i}">00:45</b> <span class="small">Descanso</span></span><button onclick="timer(${i})" style="background:none;border:none;font-size:22px;color:#FFD700">▶</button> <button class="btnO" onclick="addSalvo('${x.nome} - ${x.series}')">+ Salvar</button></div></div>`});document.getElementById('lista').innerHTML=h||'<p class="small" style="padding:14px">Nenhum encontrado.</p>';}
+function marcar(i,el){if(feitos.has(i)){feitos.delete(i);el.classList.remove('on');el.innerHTML=''}else{feitos.add(i);el.classList.add('on');el.innerHTML='✓'}let p=Math.round(feitos.size/EX.length*100);document.getElementById('barraTop').style.width=p+'%';document.getElementById('txtProg').innerText=feitos.size+' de '+EX.length+' feitos';}
+function timer(i){let s=45,el=document.getElementById('t'+i);let iv=setInterval(()=>{s--;el.innerText='00:'+(s<10?'0'+s:s);if(s<=0){clearInterval(iv);el.innerText='00:45';alert('⏰ Descanso acabou! Bora!')}},1000);}
+function addSalvo(txt){meus.push(txt);renderSalvos();alert('✅ Salvo no seu plano! Vai em Meus Treinos Salvos.');}
+function addEx(){let v=document.getElementById('novoEx').value;if(!v)return alert('Escreva o exercício');meus.push(v);document.getElementById('novoEx').value='';renderSalvos();}
+function renderSalvos(){document.getElementById('meusSalvos').innerHTML=meus.map(m=>`<div class="saved">✅ ${m}</div>`).join('')||'';}
+function salvarPlano(){if(!meus.length)return alert('Adicione um exercício primeiro');let treino=document.getElementById('treinoSel').value;document.getElementById('listaSalvos').innerHTML=`<div class="saved"><b>${treino}</b><br>${meus.join('<br>')}<br><span class="small">Salvo com sucesso! ✅</span></div>`;alert('💾 PLANO SALVO! Seu plano da semana está guardado.');}
+function addPeso(){let v=parseFloat(document.getElementById('novoPeso').value);if(!v)return alert('Coloque seu peso');pesos.push(v);document.getElementById('kPeso').innerText=v+' kg';let ini=pesos[0],dif=(v-ini).toFixed(1);document.getElementById('evolucaoTxt').innerText=dif>=0?`Você evoluiu +${dif}kg desde o início! Continue! 🔥`:`Você perdeu ${Math.abs(dif)}kg. Foco!`;desenharGrafico();alert('✅ Peso registrado! Evolução atualizada.');}
+function desenharGrafico(){let c=document.getElementById('grafico');if(!c)return;let ctx=c.getContext('2d');ctx.clearRect(0,0,320,140);ctx.strokeStyle='#FFD700';ctx.lineWidth=3;ctx.beginPath();pesos.forEach((p,i)=>{let x=20+i*40,y=120-(p-50)*2;if(i==0)ctx.moveTo(x,y);else ctx.lineTo(x,y);ctx.fillStyle='#FFD700';ctx.beginPath();ctx.arc(x,y,5,0,7);ctx.fill();});ctx.stroke();}
+function boneco(x){let cls=m=>x.prin.includes(m)?'active':(x.aju.includes(m)?'helper':'');return `<svg width="200" height="310" viewBox="0 0 200 310" class="anim-${x.tipo}"><circle cx="100" cy="22" r="18" fill="#e8e8e8"/><rect x="72" y="40" width="56" height="78" rx="16" fill="#e8e8e8"/><path class="muscle ${cls('peito')}" d="M74 48 Q100 62 126 48 L124 82 Q100 92 76 82 Z" fill="#f0f0f0"/><circle class="muscle ${cls('ombro')}" cx="68" cy="50" r="14" fill="#e8e8e8"/><circle class="muscle ${cls('ombro')}" cx="132" cy="50" r="14" fill="#e8e8e8"/><rect class="muscle ${cls('biceps')}" x="52" y="58" width="16" height="42" rx="8" fill="#e8e8e8"/><rect class="muscle ${cls('biceps')}" x="132" y="58" width="16" height="42" rx="8" fill="#e8e8e8"/><rect class="muscle ${cls('triceps')}" x="52" y="100" width="14" height="38" rx="7" fill="#d8d8d8"/><rect class="muscle ${cls('triceps')}" x="134" y="100" width="14" height="38" rx="7" fill="#d8d8d8"/><rect x="86" y="92" width="28" height="24" rx="6" fill="#d8d8d8"/><path class="muscle ${cls('dorsal')}" d="M76 44 L124 44 L118 110 L82 110 Z" fill="#d0d0d0" opacity="${visao=='costas'?1:0.15}"/><rect class="muscle ${cls('quad')}" x="74" y="122" width="22" height="78" rx="10" fill="#e8e8e8"/><rect class="muscle ${cls('quad')}" x="104" y="122" width="22" height="78" rx="10" fill="#e8e8e8"/><rect class="muscle ${cls('gluteo')}" x="74" y="118" width="52" height="18" rx="9" fill="#e0e0e0"/><rect x="76" y="210" width="18" height="42" rx="8" fill="#d8d8d8"/><rect x="106" y="210" width="18" height="42" rx="8" fill="#d8d8d8"/><circle cx="38" cy="62" r="16" fill="#111" stroke="#555" stroke-width="3"/><circle cx="162" cy="62" r="16" fill="#111" stroke="#555" stroke-width="3"/><text x="100" y="300" text-anchor="middle" fill="#FFD700" font-size="12" font-weight="bold">PEIXOTO FIT • 3D</text></svg>`;}
+function abrir(i){let x=EX[i];visao='frente';document.getElementById('modal').style.display='block';renderModal(x,i);}
+function renderModal(x,i){document.getElementById('modal').innerHTML=`<div style="padding:12px"><span onclick="fechar()" style="font-size:28px;cursor:pointer">←</span><span style="float:right">+</span></div><div class="stage">${boneco(x)}</div><div class="legend"><span>🔴 Principal</span><span>🟡 Ajudando</span></div><div style="text-align:center"><button class="btnO" onclick="trocar(${i},'frente')">👤 FRENTE</button> <button class="btnO" onclick="trocar(${i},'costas')">🔙 COSTAS</button></div><div style="padding:16px"><h2>${x.nome}</h2><p class="small">🏋️ <b>Máquina / Equipamento:</b> <b style="color:#fff">${x.maquina}</b><br>Tipo: <b class="yellow">${x.equip}</b> • Músculo: <span class="red">${x.mus}</span> • ${x.series}</p><div style="background:#1a1a1a;border:1px solid #FF2D2D;border-radius:12px;padding:12px;margin-top:10px"><b class="red">🔥 MÚSCULO ACENDENDO:</b><br><span class="small">${x.prin.join(', ').toUpperCase()} em VERMELHO pulsando. ${x.aju.length?x.aju.join(', ')+' em AMARELO ajudando.':''}</span></div><p class="small" style="margin-top:12px"><b class="yellow">📋 EXECUÇÃO PERFEITA:</b><br>${x.desc}</p><p class="small" style="margin-top:8px">⏱ Desça 2s • Segure 1s • Suba 1s • Descanse 45-90s<br>🚫 Não roube com o corpo, não faça rápido demais.</p><button class="btnY" onclick="fechar()">✅ ENTENDI, QUERO FAZER ESSE</button><button class="btnO" style="width:100%;margin-top:8px;padding:13px" onclick="fechar()">Fechar</button></div>`;}
+function trocar(i,v){visao=v;renderModal(EX[i],i);}
 function fechar(){document.getElementById('modal').style.display='none';}
 listar();
 </script>
